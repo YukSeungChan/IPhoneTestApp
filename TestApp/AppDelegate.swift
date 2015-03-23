@@ -42,3 +42,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension MTLJSONAdapter {
+    class func modelOfClass<T: MTLModel>(T.Type, fromJSONDictionary: AnyObject!) -> (T?, NSError?) {
+        var error: NSError?
+        var fromJSONDictionary = fromJSONDictionary as? Dictionary<NSObject, AnyObject>
+        let model = modelOfClass(T.self, fromJSONDictionary: fromJSONDictionary, error: &error) as? T
+        return (model, error)
+    }
+    
+    class func modelsOfClass<T: MTLModel>(T.Type, fromJSONArray: [AnyObject]!) -> ([T]?, NSError?) {
+        var error: NSError?
+        let models = modelsOfClass(T.self, fromJSONArray: fromJSONArray, error: &error)
+        return (models as? [T], error)
+    }
+}
