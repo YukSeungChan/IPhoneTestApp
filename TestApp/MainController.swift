@@ -16,8 +16,9 @@ class MainController: UIViewController {
         let requestManager = AFHTTPRequestOperationManager()
         requestManager.GET("https://api.github.com/users/YukSeungChan",
             parameters: nil,
-            success: { (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-                println("JSON:  \(responseObject)")
+            success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
+                let user = MTLJSONAdapter.modelOfClass(User.self, fromJSONDictionary: responseObject!)
+                println("JSON:  \(user)")
             },
             failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
                 println("Error: \(error.localizedDescription)")
