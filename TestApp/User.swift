@@ -11,6 +11,16 @@ import Foundation
 class User : MTLModel, MTLJSONSerializing
 {
     var id: NSNumber?
+    var avatarUrl: String?
+    var blogUrl: String?
+    var company: String?
+    var email: String?
+    var eventsUrl: String?
+    var followerCnt: NSNumber?
+    var followingCnt: NSNumber?
+    var name: String?
+    var username: String?
+    var url: String?
     
     override init() {
         super.init()
@@ -26,6 +36,18 @@ class User : MTLModel, MTLJSONSerializing
     
     class func JSONKeyPathsByPropertyKey() -> [NSObject : AnyObject]!
     {
-        return ["id": "id"]
+        return [
+            "id": "id",
+            "avatarUrl": "avatar_url",
+            "blogUrl": "blog",
+            "company": "company",
+            "email": "email",
+            "eventsUrl": "events_url",
+            "followerCnt": "followers",
+            "followingCnt": "following",
+            "name": "name",
+            "username": "login",
+            "url": "url"
+        ]
     }
 }

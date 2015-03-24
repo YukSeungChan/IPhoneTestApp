@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D2328761ABF0DD500A94742 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2328751ABF0DD500A94742 /* User.swift */; };
+		1D2328791AC1B88D00A94742 /* UserRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2328781AC1B88D00A94742 /* UserRequests.swift */; };
 		1D4E8FF21ABEAA5B001ABCD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4E8FF11ABEAA5B001ABCD5 /* AppDelegate.swift */; };
 		1D4E8FF41ABEAA5B001ABCD5 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4E8FF31ABEAA5B001ABCD5 /* MainController.swift */; };
 		1D4E8FF71ABEAA5B001ABCD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D4E8FF51ABEAA5B001ABCD5 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		0821FE557FE4F00EB869FFE5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D2328741ABEB22300A94742 /* TestApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		1D2328751ABF0DD500A94742 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1D2328781AC1B88D00A94742 /* UserRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequests.swift; sourceTree = "<group>"; };
 		1D4E8FEC1ABEAA5B001ABCD5 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D4E8FF01ABEAA5B001ABCD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D4E8FF11ABEAA5B001ABCD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D2328771AC1B7C300A94742 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				1D2328781AC1B88D00A94742 /* UserRequests.swift */,
+			);
+			name = Request;
+			sourceTree = "<group>";
+		};
 		1D4E8FE31ABEAA5B001ABCD5 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +100,7 @@
 		1D4E8FEE1ABEAA5B001ABCD5 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				1D2328771AC1B7C300A94742 /* Request */,
 				1D4E90131ABEAC1D001ABCD5 /* Model */,
 				1D4E90121ABEAAE7001ABCD5 /* ViewController */,
 				1D4E90111ABEAAAA001ABCD5 /* Storyboard */,
@@ -304,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D2328791AC1B88D00A94742 /* UserRequests.swift in Sources */,
 				1D4E8FF41ABEAA5B001ABCD5 /* MainController.swift in Sources */,
 				1D4E8FF21ABEAA5B001ABCD5 /* AppDelegate.swift in Sources */,
 				1D2328761ABF0DD500A94742 /* User.swift in Sources */,
