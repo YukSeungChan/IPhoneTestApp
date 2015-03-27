@@ -8,32 +8,67 @@
 
 import UIKit
 
-class MainController: UIViewController {
+class MainController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
     @IBOutlet var avatarImageView : UIImageView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var users = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        UserRequests.getUserInfo("YukSeungChan", success: { (user: User?) in
-            self.nameLabel!.text = user?.username
-            self.emailLabel!.text = user?.email
-            if let avatarUrl = user?.avatarUrl
-            {
-                let url = NSURL(string: avatarUrl)
-                let data = NSData(contentsOfURL: url!)
-                self.avatarImageView.image = UIImage(data: data!)
-            }
-        })
+        self.automaticallyAdjustsScrollViewInsets = true
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.users.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        //ask for a reusable cell from the tableview, the tableview will create a new one if it doesn't have any
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        
+        // Get the corresponding candy from our candies array
+        let user = self.users[indexPath.row]
+        
+        if let username = user.username {
+            cell.textLabel!.text = username
+        }
+        if let avatarData = user.avatarData {
+            cell.imageView?.image = UIImage(data: avatarData)
+        }
+        cell.preservesSuperviewLayoutMargins = false
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        
+        return cell
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        search(searchBar.text)
+        searchBar.resignFirstResponder()
+    }
+    
+    private func search(searchString: String) {
+        IndicatorUtil.sharedInstance.showActivityIndicator(self.view)
+        UserRequest.sharedInstance.getSearchedUserList(searchString,
+            success: { (users: [User]!) in
+                self.users = users
+                self.tableView.reloadData()
+                IndicatorUtil.sharedInstance.hideActivityIndicator(self.view)
+            },
+            failure: { (error: AnyObject?) in
+                println(error)
+                IndicatorUtil.sharedInstance.hideActivityIndicator(self.view)
+            }
+        )
+    }
+    
 }
 

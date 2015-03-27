@@ -17,6 +17,8 @@
 		1D4E90081ABEAA5B001ABCD5 /* TestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4E90071ABEAA5B001ABCD5 /* TestAppTests.swift */; };
 		1D4E90151ABEADF5001ABCD5 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1D4E90141ABEADF5001ABCD5 /* Podfile */; };
 		61DDA436E800F86BD3371B2A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0821FE557FE4F00EB869FFE5 /* libPods.a */; };
+		BAC6FAE21AC4EA3F007D8407 /* BaseHttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6FAE11AC4EA3F007D8407 /* BaseHttpRequest.swift */; };
+		BAC6FAE51AC52EB4007D8407 /* IndicatorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6FAE41AC52EB4007D8407 /* IndicatorUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		1D4E90141ABEADF5001ABCD5 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3E7F99A7DE549C3E4393BADB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5787B4B5C4AFA7E9DF40BB1F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		BAC6FAE11AC4EA3F007D8407 /* BaseHttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseHttpRequest.swift; sourceTree = "<group>"; };
+		BAC6FAE41AC52EB4007D8407 /* IndicatorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				1D2328781AC1B88D00A94742 /* UserRequests.swift */,
+				BAC6FAE11AC4EA3F007D8407 /* BaseHttpRequest.swift */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -100,6 +105,7 @@
 		1D4E8FEE1ABEAA5B001ABCD5 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				BAC6FAE31AC52E9F007D8407 /* Util */,
 				1D2328771AC1B7C300A94742 /* Request */,
 				1D4E90131ABEAC1D001ABCD5 /* Model */,
 				1D4E90121ABEAAE7001ABCD5 /* ViewController */,
@@ -171,6 +177,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BAC6FAE31AC52E9F007D8407 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				BAC6FAE41AC52EB4007D8407 /* IndicatorUtil.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		F636BB5179B0B2D3C46309DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +244,7 @@
 				TargetAttributes = {
 					1D4E8FEB1ABEAA5B001ABCD5 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = R32TC56TQP;
 					};
 					1D4E90001ABEAA5B001ABCD5 = {
 						CreatedOnToolsVersion = 6.2;
@@ -316,9 +331,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D2328791AC1B88D00A94742 /* UserRequests.swift in Sources */,
+				BAC6FAE51AC52EB4007D8407 /* IndicatorUtil.swift in Sources */,
 				1D4E8FF41ABEAA5B001ABCD5 /* MainController.swift in Sources */,
 				1D4E8FF21ABEAA5B001ABCD5 /* AppDelegate.swift in Sources */,
 				1D2328761ABF0DD500A94742 /* User.swift in Sources */,
+				BAC6FAE21AC4EA3F007D8407 /* BaseHttpRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +460,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TestApp/TestApp-Bridging-Header.h";
@@ -455,6 +473,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TestApp/TestApp-Bridging-Header.h";

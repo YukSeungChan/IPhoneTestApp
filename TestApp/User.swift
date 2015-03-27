@@ -12,6 +12,7 @@ class User : MTLModel, MTLJSONSerializing
 {
     var id: NSNumber?
     var avatarUrl: String?
+    var avatarData: NSData?
     var blogUrl: String?
     var company: String?
     var email: String?
@@ -32,6 +33,10 @@ class User : MTLModel, MTLJSONSerializing
     
     override init(dictionary dictionaryValue: [NSObject : AnyObject]!, error: NSErrorPointer) {
         super.init(dictionary: dictionaryValue, error: error)
+        if let avatarUrl = self.avatarUrl {
+            let url = NSURL(string: avatarUrl)
+            self.avatarData = NSData(contentsOfURL: url!)
+        }
     }
     
     class func JSONKeyPathsByPropertyKey() -> [NSObject : AnyObject]!

@@ -50,7 +50,7 @@ extension MTLJSONAdapter {
         return (model, error)
     }
     
-    class func modelsOfClass<T: MTLModel>(T.Type, fromJSONArray: [AnyObject]!) -> ([T]?, NSError?) {
+    class func modelsOfClass<T: MTLModel>(T.Type, fromJSONArray: [AnyObject]!) -> (models: [T]?, error: NSError?) {
         var error: NSError?
         let models = modelsOfClass(T.self, fromJSONArray: fromJSONArray, error: &error)
         return (models as? [T], error)
